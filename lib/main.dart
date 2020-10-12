@@ -32,42 +32,38 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("main page"),
-            ],
-          ),
-        ),
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CustomBottomSheet(),
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                border: Border(
-                  top: BorderSide(
-                    width: 0.5,
-                    color: Color(0xFFe9e9e9),
-                  ),
-                ),
-              ),
-              padding: const EdgeInsets.all(10),
-              child: RaisedButton(
-                elevation: 0,
-                onPressed: () {},
-                child: Text(
-                  "Some button",
-                ),
+            Text("main page"),
+          ],
+        ),
+      ),
+      bottomNavigationBar: CustomBottomSheet(
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              top: BorderSide(
+                width: 0.5,
+                color: Color(0xFFe9e9e9),
               ),
             ),
-          ],
-        ));
+          ),
+          padding: const EdgeInsets.all(10),
+          child: RaisedButton(
+            elevation: 0,
+            onPressed: () {},
+            child: Text(
+              "Some button",
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
