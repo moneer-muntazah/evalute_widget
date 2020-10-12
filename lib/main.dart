@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "evaluate.dart";
+import 'evaluate.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,42 +30,50 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("main page"),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Evaluate(
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            border: Border(
-              top: BorderSide(
-                width: 0.5,
-                color: Color(0xFFe9e9e9),
+      body: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("main page"),
+              ],
+            ),
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Evaluate(),
+              Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  border: Border(
+                    top: BorderSide(
+                      width: 0.5,
+                      color: Color(0xFFe9e9e9),
+                    ),
+                  ),
+                ),
+                padding: const EdgeInsets.all(10),
+                child: RaisedButton(
+                  elevation: 0,
+                  onPressed: () {},
+                  child: Text(
+                    "Some button",
+                  ),
+                ),
               ),
-            ),
-          ),
-          padding: const EdgeInsets.all(10),
-          child: RaisedButton(
-            elevation: 0,
-            onPressed: () {},
-            child: Text(
-              "Some button",
-            ),
-          ),
-        ),
+            ],
+          )
+        ],
       ),
     );
   }
